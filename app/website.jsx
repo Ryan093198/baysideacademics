@@ -16,7 +16,14 @@ useEffect(()=>{const h=()=>setScrolled(window.scrollY>40);window.addEventListene
 const nav=(p)=>{setPage(p);window.scrollTo(0,0);};
 const[cf,setCf]=useState({name:"",email:"",phone:"",message:"",subject:"General Enquiry"});
 const[sent,setSent]=useState(false);
-const sendEmail=async(formData,type)=>{const subject=type==="enrol"?"New Enrolment Enquiry - Bayside Academics":"Website Enquiry - Bayside Academics";const body=Object.entries(formData).map(([k,v])=>v?`${k}: ${v}`:"").filter(Boolean).join("\n");window.open(`mailto:learning@baysideacademics.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);};
+const sendEmail=async(formData,type)=>{
+  try{
+    const response=await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...formData,type})});
+    const data=await response.json();
+    if(!response.ok)throw new Error(data.error||"Failed to send");
+    return true;
+  }catch(err){console.error("Email error:",err);window.open(`mailto:learning@baysideacademics.com.au?subject=${encodeURIComponent(type==="enrol"?"Enrolment Enquiry":"Website Enquiry")}&body=${encodeURIComponent(Object.entries(formData).map(([k,v])=>v?`${k}: ${v}`:"").filter(Boolean).join("\n"))}`);return true;}
+};
 
 return(<div style={{fontFamily:"'Montserrat','Helvetica Neue',sans-serif",color:c.text,background:c.white,minHeight:"100vh"}}>
 <style>{`@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700&display=swap');*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}body{background:${c.white};-webkit-font-smoothing:antialiased}::selection{background:${c.cyanPale};color:${c.dark}}a{text-decoration:none;color:inherit}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}`}</style>
