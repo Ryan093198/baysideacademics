@@ -64,7 +64,7 @@ export async function POST(request) {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: "Bayside Academics <noreply@baysideacademics.com.au>",
+        from: "Bayside Academics <onboarding@resend.dev>",
         to: ["learning@baysideacademics.com.au"],
         reply_to: email,
         subject: emailSubject,
