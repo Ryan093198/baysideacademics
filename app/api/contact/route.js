@@ -1,5 +1,14 @@
 import { NextResponse } from "next/server";
 
+export async function GET() {
+  const apiKey = process.env.RESEND_API_KEY?.trim();
+  return NextResponse.json({ 
+    status: "ok", 
+    hasKey: !!apiKey,
+    keyPrefix: apiKey ? apiKey.substring(0, 8) + "..." : "missing"
+  });
+}
+
 export async function POST(request) {
   try {
     const body = await request.json();
@@ -11,7 +20,7 @@ export async function POST(request) {
 
     const apiKey = process.env.RESEND_API_KEY?.trim();
     if (!apiKey) {
-      return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
+      return NextResponse.json({ error: "Email service not configured - no RESEND_API_KEY" }, { status: 500 });
     }
 
     const isEnrol = type === "enrol";
@@ -19,7 +28,6 @@ export async function POST(request) {
       ? `New Enrolment Enquiry - ${childName || name}`
       : `Website Enquiry - ${subject || "General"}`;
 
-    // Build email body
     let htmlBody = `
       <div style="font-family: Arial, sans-serif; max-width: 600px;">
         <div style="background: #1A1A2E; padding: 20px 24px; border-radius: 12px 12px 0 0;">
@@ -56,7 +64,7 @@ export async function POST(request) {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: "Bayside Academics Website <noreply@baysideacademics.com.au>",
+        from: "Bayside Academics <noreply@baysideacademics.com.au>",
         to: ["learning@baysideacademics.com.au"],
         reply_to: email,
         subject: emailSubject,
@@ -64,13 +72,14 @@ export async function POST(request) {
       }),
     });
 
+    const resendResult = await response.text();
+    
     if (!response.ok) {
-      const errText = await response.text();
-      console.error("Resend error:", response.status, errText);
-      return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+      console.error("Resend error:", response.status, resendResult);
+      return NextResponse.json({ error: `Resend error (${response.status}): ${resendResult}` }, { status: 500 });
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, resend: resendResult });
   } catch (err) {
     console.error("Contact route error:", err);
     return NextResponse.json({ error: err.message }, { status: 500 });
