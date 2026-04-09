@@ -30,6 +30,7 @@ return(<div style={{fontFamily:"'Montserrat','Helvetica Neue',sans-serif",color:
 .desk-nav{display:none!important}
 div.g1{grid-template-columns:1fr!important;gap:30px!important}
 div.g2{grid-template-columns:1fr 1fr!important;gap:10px!important}
+div.g3{grid-template-columns:1fr 1fr 1fr!important;gap:6px!important}
 div.gf{grid-template-columns:1fr 1fr!important;gap:20px!important}
 section.shero{min-height:auto!important;padding:100px 20px 50px!important}
 section.sp{padding:60px 20px!important}
@@ -87,7 +88,7 @@ h3{font-size:20px!important}
 
 function HomePage({nav,openEnrol}){
 return(<div>
-<section className="shero" style={{background:`linear-gradient(135deg,${c.dark} 0%,${c.darkMid} 50%,${c.darkLight} 100%)`,display:"flex",alignItems:"center",justifyContent:"center",padding:"140px 40px 60px",position:"relative",overflow:"hidden"}}><div style={{position:"absolute",top:"20%",right:"10%",width:400,height:400,borderRadius:"50%",background:"radial-gradient(circle,rgba(0,194,224,0.1) 0%,transparent 70%)",pointerEvents:"none"}}/><div className="g1" style={{maxWidth:1200,margin:"0 auto",display:"grid",gridTemplateColumns:"1fr 1fr",gap:60,alignItems:"center"}}><div>
+<section className="shero" style={{background:`linear-gradient(135deg,${c.dark} 0%,${c.darkMid} 50%,${c.darkLight} 100%)`,display:"flex",alignItems:"center",justifyContent:"center",padding:"160px 40px 60px",position:"relative",overflow:"hidden"}}><div style={{position:"absolute",top:"20%",right:"10%",width:400,height:400,borderRadius:"50%",background:"radial-gradient(circle,rgba(0,194,224,0.1) 0%,transparent 70%)",pointerEvents:"none"}}/><div className="g1" style={{maxWidth:1200,margin:"0 auto",display:"grid",gridTemplateColumns:"1fr 1fr",gap:60,alignItems:"center"}}><div>
 <h1 style={{fontSize:52,color:c.white,lineHeight:1.15,marginBottom:20,fontWeight:800}}>Reach your<br/>academic <span style={{color:c.cyan}}>potential</span></h1>
 <p style={{fontSize:16,color:"rgba(255,255,255,0.55)",lineHeight:1.8,marginBottom:36,maxWidth:460,fontFamily:"'Lato',sans-serif"}}>Expert face-to-face and online tutoring for students of all ages and abilities. Our experienced tutors have a comprehensive understanding of the curriculum and a passion for teaching.</p>
 <div style={{display:"flex",gap:12,flexWrap:"wrap"}}><button onClick={openEnrol} style={{padding:"15px 30px",borderRadius:8,border:"none",fontSize:14,fontWeight:700,cursor:"pointer",background:`linear-gradient(135deg,${c.cyan},${c.cyanLight})`,color:c.white,textTransform:"uppercase",letterSpacing:1}}>Get Started</button><button onClick={()=>nav("services")} style={{padding:"15px 30px",borderRadius:8,border:"2px solid rgba(255,255,255,0.2)",fontSize:14,fontWeight:600,cursor:"pointer",background:"transparent",color:"rgba(255,255,255,0.8)",textTransform:"uppercase",letterSpacing:1}}>Our Services</button></div></div>
@@ -95,7 +96,7 @@ return(<div>
 <div style={{borderRadius:14,overflow:"hidden",border:"2px solid rgba(255,255,255,0.08)"}}>
 <img src="/hero-photo.jpg" alt="Tutoring session at Bayside Academics" style={{width:"100%",display:"block",height:240,objectFit:"cover",objectPosition:"center top"}}/>
 </div>
-<div className="g2" style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10}}>
+<div className="g3" style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10}}>
 {[{icon:"📚",label:"Prep - Year 12",desc:"All Subjects"},{icon:"🎯",label:"VCAA Aligned",desc:"Victorian Curriculum"},{icon:"👤",label:"1-on-1 Sessions",desc:"Personalised attention"}].map((f,i)=><div key={i} style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.08)",borderRadius:12,padding:"16px 14px",animation:`float 4s ease-in-out infinite`,animationDelay:`${i*.4}s`}}><span style={{fontSize:22}}>{f.icon}</span><p style={{fontSize:13,color:c.white,marginTop:8,fontWeight:700}}>{f.label}</p><p style={{fontSize:11,color:"rgba(255,255,255,0.4)",marginTop:2,fontFamily:"'Lato',sans-serif"}}>{f.desc}</p></div>)}
 </div>
 </div></div></section>
