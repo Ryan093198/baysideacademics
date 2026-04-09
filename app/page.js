@@ -1,4 +1,2 @@
 import BaysideWebsite from "./website";
-export default function Page() {
-  return <BaysideWebsite />;
-}
+export default function Page() { return <BaysideWebsite />; }
