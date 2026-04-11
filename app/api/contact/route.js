@@ -34,7 +34,7 @@ export async function POST(request) {
       },
       body: JSON.stringify({
         from: "Bayside Academics <noreply@baysideacademics.com.au>",
-        to: ["learning@baysideacademics.com.au"],
+        to: ["admin@baysideacademics.com.au"],
         reply_to: email,
         subject: emailSubject,
         html: htmlBody,

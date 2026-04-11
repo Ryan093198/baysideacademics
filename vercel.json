@@ -1,1 +1,20 @@
-{"framework": "nextjs"}
+{"framework": "nextjs",
+"redirects": [
+  {"source": "/high-school", "destination": "/", "permanent": true},
+  {"source": "/what-we-offer", "destination": "/", "permanent": true},
+  {"source": "/what-we-offer/:path*", "destination": "/", "permanent": true},
+  {"source": "/our-team", "destination": "/", "permanent": true},
+  {"source": "/contact-us", "destination": "/", "permanent": true},
+  {"source": "/vce", "destination": "/", "permanent": true},
+  {"source": "/vce/:path*", "destination": "/", "permanent": true},
+  {"source": "/year-7-10", "destination": "/", "permanent": true},
+  {"source": "/primary-school", "destination": "/", "permanent": true},
+  {"source": "/about", "destination": "/", "permanent": true},
+  {"source": "/services", "destination": "/", "permanent": true},
+  {"source": "/group-classes", "destination": "/", "permanent": true},
+  {"source": "/group-classes/:path*", "destination": "/", "permanent": true},
+  {"source": "/contact", "destination": "/", "permanent": true},
+  {"source": "/tutors", "destination": "/", "permanent": true},
+  {"source": "/enrol", "destination": "/", "permanent": true},
+  {"source": "/enroll", "destination": "/", "permanent": true}
+]}
