@@ -18,7 +18,9 @@ const nav=(p)=>{setPage(p);setMobileMenu(false);window.scrollTo(0,0);};
 const[cf,setCf]=useState({name:"",email:"",phone:"",message:"",subject:"General Enquiry"});
 const[sent,setSent]=useState(false);
 const sendEmail=async(formData,type)=>{
-  try{const r=await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...formData,type})});const d=await r.json();if(!r.ok)throw new Error(d.error);return true;}
+  try{const r=await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...formData,type})});const d=await r.json();if(!r.ok)throw new Error(d.error);
+    if(typeof window!=="undefined"&&typeof window.gtag==="function"){window.gtag("event","conversion",{send_to:"AW-777828845/DcpxCMie-doBEO3z8vIC"});}
+    return true;}
   catch(err){console.error("Email error:",err);window.open(`mailto:admin@baysideacademics.com.au?subject=${encodeURIComponent(type==="enrol"?"Enrolment Enquiry":"Website Enquiry")}&body=${encodeURIComponent(Object.entries(formData).map(([k,v])=>v?`${k}: ${v}`:"").filter(Boolean).join("\n"))}`);return true;}
 };
 
