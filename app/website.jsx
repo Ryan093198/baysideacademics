@@ -205,7 +205,7 @@ return(<div>
 <button onClick={()=>nav("contact")} style={{padding:"15px 30px",borderRadius:8,border:"2px solid rgba(255,255,255,0.2)",fontSize:14,fontWeight:600,cursor:"pointer",background:"transparent",color:"rgba(255,255,255,0.8)",textTransform:"uppercase",letterSpacing:1}}>Ask a Question</button>
 </div></div></section>
 
-<section className="sp" style={{padding:"100px 40px",background:c.offWhite}}>
+<section id="how-it-works" className="sp" style={{padding:"100px 40px",background:c.offWhite}}>
 <div style={{maxWidth:1000,margin:"0 auto"}}>
 <F><h2 style={{fontSize:32,fontWeight:800,color:c.cyan,textAlign:"center",marginBottom:8}}>How Premier+ Works</h2>
 <div style={{width:40,height:3,background:c.cyan,margin:"0 auto 16px",borderRadius:2}}/>
@@ -220,7 +220,7 @@ return(<div>
 </div></F>)}
 </div></div></section>
 
-<section className="sp" style={{padding:"100px 40px",background:c.white}}>
+<section id="whats-included" className="sp" style={{padding:"100px 40px",background:c.white}}>
 <div style={{maxWidth:1100,margin:"0 auto"}}>
 <F><h2 style={{fontSize:32,fontWeight:800,color:c.cyan,textAlign:"center",marginBottom:8}}>What's Included</h2>
 <div style={{width:40,height:3,background:c.cyan,margin:"0 auto 48px",borderRadius:2}}/></F>
@@ -239,7 +239,7 @@ return(<div>
 </div></F>)}
 </div></div></section>
 
-<section className="sp" style={{padding:"100px 40px",background:c.offWhite}}>
+<section id="sample-report" className="sp" style={{padding:"100px 40px",background:c.offWhite}}>
 <div style={{maxWidth:1000,margin:"0 auto"}}>
 <F><h2 style={{fontSize:32,fontWeight:800,textAlign:"center",marginBottom:8}}>What a Session Report Looks Like</h2>
 <div style={{width:40,height:3,background:c.cyan,margin:"0 auto 16px",borderRadius:2}}/>
