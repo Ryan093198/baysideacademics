@@ -6,8 +6,8 @@ function F({children,delay=0,style={}}){const[ref,inView]=useInView();return(<di
 
 const TUTOR_IMG="/tutors.png";
 
-export default function App(){
-const[page,setPage]=useState("home");
+export default function App({initialPage="home"}){
+const[page,setPage]=useState(initialPage);
 const[mobileMenu,setMobileMenu]=useState(false);
 const[scrolled,setScrolled]=useState(false);
 const[showEnrol,setShowEnrol]=useState(false);
