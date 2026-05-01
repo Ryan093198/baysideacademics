@@ -83,6 +83,7 @@ h3{font-size:20px!important}
 {page==="about"&&<AboutPage nav={nav} openEnrol={()=>setShowEnrol(true)}/>}
 {page==="services"&&<ServicesPage nav={nav} openEnrol={()=>setShowEnrol(true)}/>}
 {page==="contact"&&<ContactPage form={cf} setForm={setCf} sent={sent} setSent={setSent} sendEmail={sendEmail}/>}
+{page==="premier"&&<PremierPage nav={nav} openEnrol={()=>setShowEnrol(true)}/>}
 
 {/* FOOTER */}
 <footer className="fpad" style={{background:c.dark,padding:"60px 40px 40px"}}><div style={{maxWidth:1200,margin:"0 auto"}}><div className="gf" style={{display:"grid",gridTemplateColumns:"2fr 1fr 1fr 1fr",gap:40,marginBottom:40}}><div><p style={{fontSize:14,fontWeight:700,color:c.white,textTransform:"uppercase",letterSpacing:1,marginBottom:16}}>Bayside Academics</p><p style={{color:"rgba(255,255,255,0.4)",fontSize:13,lineHeight:1.7,maxWidth:300}}>Premium 1-on-1 tutoring for students from Prep to Year 12. VCAA-aligned curriculum support across all subjects.</p></div><div><h4 style={{color:c.cyan,fontSize:12,fontWeight:700,textTransform:"uppercase",letterSpacing:2,marginBottom:16}}>Quick Links</h4>{["Home","About","Services","Contact"].map(l=><p key={l} onClick={()=>nav(l.toLowerCase())} style={{color:"rgba(255,255,255,0.4)",fontSize:13,marginBottom:10,cursor:"pointer"}}>{l}</p>)}</div><div><h4 style={{color:c.cyan,fontSize:12,fontWeight:700,textTransform:"uppercase",letterSpacing:2,marginBottom:16}}>Subjects</h4>{["Mathematics","English","Sciences","Humanities","VCE"].map(s=><p key={s} style={{color:"rgba(255,255,255,0.4)",fontSize:13,marginBottom:10}}>{s}</p>)}</div><div><h4 style={{color:c.cyan,fontSize:12,fontWeight:700,textTransform:"uppercase",letterSpacing:2,marginBottom:16}}>Contact</h4><p style={{color:"rgba(255,255,255,0.4)",fontSize:13,marginBottom:10}}>5/240 Bay St, Brighton VIC 3186</p><p style={{color:"rgba(255,255,255,0.4)",fontSize:13,marginBottom:10}}>admin@baysideacademics.com.au</p><p style={{color:"rgba(255,255,255,0.4)",fontSize:13}}>0426 787 978</p></div></div><div style={{borderTop:"1px solid rgba(255,255,255,0.08)",paddingTop:24,display:"flex",justifyContent:"space-between"}}><p style={{color:"rgba(255,255,255,0.25)",fontSize:12}}>© 2026 Bayside Academics. ABN: 29 701 561 362</p><p style={{color:"rgba(255,255,255,0.25)",fontSize:12}}>Powered by Premier+</p></div></div></footer>
@@ -114,7 +115,7 @@ return(<div>
 <h2 style={{fontSize:34,fontWeight:800,marginBottom:16,lineHeight:1.2}}>More than tutoring - a complete learning system</h2>
 <p style={{fontSize:15,color:c.textLight,lineHeight:1.8,marginBottom:28,fontFamily:"'Lato',sans-serif"}}>Premier+ combines expert 1-on-1 tutoring with customised reporting, real-time progress tracking, and curriculum-aligned session summaries prepared by your tutor.</p>
 <div style={{display:"grid",gap:14}}>{["Detailed session reports prepared after every lesson","VCAA curriculum-aligned progress tracking","Subtopic-level confidence ratings","Practice questions tailored to each topic","Parent dashboard with full visibility","Assessment awareness - your tutor knows what tests are coming"].map((f,i)=><div key={i} style={{display:"flex",alignItems:"center",gap:10}}><div style={{width:22,height:22,borderRadius:6,background:`${c.cyan}15`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,color:c.cyan,flexShrink:0}}>✓</div><span style={{fontSize:14,color:c.textLight,fontFamily:"'Lato',sans-serif"}}>{f}</span></div>)}</div>
-<button onClick={()=>nav("services")} style={{marginTop:28,padding:"13px 26px",borderRadius:8,border:"none",fontSize:14,fontWeight:700,cursor:"pointer",background:`linear-gradient(135deg,${c.cyan},${c.cyanLight})`,color:c.white,textTransform:"uppercase",letterSpacing:.5}}>Learn More</button>
+<button onClick={()=>nav("premier")} style={{marginTop:28,padding:"13px 26px",borderRadius:8,border:"none",fontSize:14,fontWeight:700,cursor:"pointer",background:`linear-gradient(135deg,${c.cyan},${c.cyanLight})`,color:c.white,textTransform:"uppercase",letterSpacing:.5}}>Learn More</button>
 </F><F delay={.15}><div style={{display:"grid",gap:16}}>
 <div style={{background:c.dark,borderRadius:16,padding:24,boxShadow:"0 20px 60px rgba(0,0,0,0.15)"}}><div style={{background:c.darkMid,borderRadius:10,padding:"16px 20px",marginBottom:12}}><p style={{color:"rgba(255,255,255,0.4)",fontSize:11,textTransform:"uppercase",letterSpacing:1,marginBottom:4}}>Overall Confidence</p><p style={{fontSize:32,color:c.cyan,fontWeight:800}}>4.2/5</p></div>{["Quadratic Equations","Trigonometry","Linear Graphs"].map((t,i)=><div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"9px 0",borderBottom:i<2?"1px solid rgba(255,255,255,0.06)":"none"}}><span style={{color:"rgba(255,255,255,0.6)",fontSize:13}}>{t}</span><div style={{display:"flex",gap:3}}>{[1,2,3,4,5].map(v=><div key={v} style={{width:8,height:8,borderRadius:2,background:v<=(5-i)?c.cyan:"rgba(255,255,255,0.1)"}}/>)}</div></div>)}</div>
 <div style={{background:c.dark,borderRadius:16,padding:24,boxShadow:"0 20px 60px rgba(0,0,0,0.15)"}}>
@@ -182,3 +183,239 @@ function ContactPage({form,setForm,sent,setSent,sendEmail}){const set=(f)=>(e)=>
 <div style={{marginTop:24,borderRadius:14,overflow:"hidden",border:`1px solid ${c.border}`,maxWidth:320}}><img src="/contact-photo.jpg" alt="Tutoring at Bayside Academics" style={{width:"100%",display:"block",objectFit:"contain"}}/></div>
 </div></F>
 </div></section></div>);}
+
+function PremierPage({nav,openEnrol}){
+const steps=[
+{num:"1",title:"Session Delivered",desc:"Your child has a 1-on-1 lesson with their dedicated tutor, tailored to their needs and school curriculum."},
+{num:"2",title:"Tutor Writes Notes",desc:"Immediately after the session, the tutor records what was covered, how the student performed, and areas to focus on."},
+{num:"3",title:"Report Generated",desc:"A detailed, structured lesson summary is generated and sent to you - covering topics, confidence ratings, and next steps."},
+{num:"4",title:"Progress Tracked",desc:"Every session builds on the last. You can see your child's progress across topics over time through the parent dashboard."}
+];
+return(<div>
+<section className="sph" style={{padding:"160px 40px 80px",background:`linear-gradient(135deg,${c.dark} 0%,${c.darkMid} 50%,${c.darkLight} 100%)`,position:"relative",overflow:"hidden"}}>
+<div style={{position:"absolute",top:"15%",right:"8%",width:350,height:350,borderRadius:"50%",background:"radial-gradient(circle,rgba(0,194,224,0.08) 0%,transparent 70%)",pointerEvents:"none"}}/>
+<div style={{maxWidth:800,margin:"0 auto",textAlign:"center"}}>
+<div style={{display:"inline-flex",alignItems:"center",gap:8,background:`${c.gold}20`,border:`1px solid ${c.gold}40`,borderRadius:20,padding:"6px 16px",marginBottom:20}}>
+<span style={{fontSize:11,color:c.gold,fontWeight:700,textTransform:"uppercase",letterSpacing:1.5}}>Premier+</span>
+</div>
+<h1 style={{fontSize:48,fontWeight:800,color:c.white,marginBottom:16,lineHeight:1.15}}>More than tutoring.<br/><span style={{color:c.cyan}}>A complete learning system.</span></h1>
+<p style={{fontSize:17,color:"rgba(255,255,255,0.55)",lineHeight:1.8,maxWidth:600,margin:"0 auto 32px",fontFamily:"'Lato',sans-serif"}}>Premier+ combines expert 1-on-1 tutoring with detailed session reports, real-time progress tracking, and a parent dashboard - so you always know exactly where your child stands.</p>
+<div style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap"}}>
+<button onClick={openEnrol} style={{padding:"15px 30px",borderRadius:8,border:"none",fontSize:14,fontWeight:700,cursor:"pointer",background:`linear-gradient(135deg,${c.cyan},${c.cyanLight})`,color:c.white,textTransform:"uppercase",letterSpacing:1}}>Get Started</button>
+<button onClick={()=>nav("contact")} style={{padding:"15px 30px",borderRadius:8,border:"2px solid rgba(255,255,255,0.2)",fontSize:14,fontWeight:600,cursor:"pointer",background:"transparent",color:"rgba(255,255,255,0.8)",textTransform:"uppercase",letterSpacing:1}}>Ask a Question</button>
+</div></div></section>
+
+<section className="sp" style={{padding:"100px 40px",background:c.offWhite}}>
+<div style={{maxWidth:1000,margin:"0 auto"}}>
+<F><h2 style={{fontSize:32,fontWeight:800,color:c.cyan,textAlign:"center",marginBottom:8}}>How Premier+ Works</h2>
+<div style={{width:40,height:3,background:c.cyan,margin:"0 auto 16px",borderRadius:2}}/>
+<p style={{fontSize:15,color:c.textLight,textAlign:"center",maxWidth:550,margin:"0 auto 48px",fontFamily:"'Lato',sans-serif",lineHeight:1.7}}>A structured process that keeps parents informed and students on track - after every single session.</p></F>
+<div className="g1" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20}}>
+{steps.map((s,i)=><F key={i} delay={i*.1}><div style={{background:c.white,borderRadius:16,padding:"32px 28px",border:`1px solid ${c.border}`,boxShadow:"0 4px 24px rgba(0,0,0,0.04)",height:"100%"}}>
+<div style={{display:"flex",alignItems:"center",gap:14,marginBottom:14}}>
+<div style={{width:40,height:40,borderRadius:10,background:`linear-gradient(135deg,${c.cyan},${c.cyanLight})`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,fontWeight:800,color:c.white,flexShrink:0}}>{s.num}</div>
+<h3 style={{fontSize:18,fontWeight:700}}>{s.title}</h3>
+</div>
+<p style={{fontSize:14,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>{s.desc}</p>
+</div></F>)}
+</div></div></section>
+
+<section className="sp" style={{padding:"100px 40px",background:c.white}}>
+<div style={{maxWidth:1100,margin:"0 auto"}}>
+<F><h2 style={{fontSize:32,fontWeight:800,color:c.cyan,textAlign:"center",marginBottom:8}}>What's Included</h2>
+<div style={{width:40,height:3,background:c.cyan,margin:"0 auto 48px",borderRadius:2}}/></F>
+<div className="g1" style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:20}}>
+{[
+{icon:"📋",title:"Session Reports",desc:"After every lesson, you receive a detailed summary of what was covered, how your child performed, and what to focus on before the next session."},
+{icon:"📊",title:"Progress Dashboard",desc:"Track your child's confidence across every topic and subtopic. See trends over time and know exactly where they're improving."},
+{icon:"🎯",title:"VCAA Curriculum Aligned",desc:"Every session is mapped to the Victorian Curriculum. You'll see exactly which content descriptors your child has covered."},
+{icon:"📝",title:"Assessment Awareness",desc:"Upload your child's school assessment schedule, and your tutor will plan sessions around upcoming tests, SACs, and exams."},
+{icon:"📚",title:"Textbook Integration",desc:"We reference your child's actual school textbooks in our reports and recommendations - no generic resources."},
+{icon:"🔄",title:"Practice Questions",desc:"Each report includes tailored practice questions at the right difficulty level, directly linked to what was covered in the session."}
+].map((f,i)=><F key={i} delay={i*.08}><div style={{background:c.offWhite,borderRadius:14,padding:"28px 24px",border:`1px solid ${c.border}`,height:"100%"}}>
+<span style={{fontSize:28}}>{f.icon}</span>
+<h3 style={{fontSize:16,fontWeight:700,marginTop:12,marginBottom:8}}>{f.title}</h3>
+<p style={{fontSize:13,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>{f.desc}</p>
+</div></F>)}
+</div></div></section>
+
+<section className="sp" style={{padding:"100px 40px",background:c.offWhite}}>
+<div style={{maxWidth:1000,margin:"0 auto"}}>
+<F><h2 style={{fontSize:32,fontWeight:800,textAlign:"center",marginBottom:8}}>What a Session Report Looks Like</h2>
+<div style={{width:40,height:3,background:c.cyan,margin:"0 auto 16px",borderRadius:2}}/>
+<p style={{fontSize:15,color:c.textLight,textAlign:"center",maxWidth:550,margin:"0 auto 40px",fontFamily:"'Lato',sans-serif",lineHeight:1.7}}>Here's an example of what you'll receive after each lesson.</p></F>
+<F delay={.15}><div style={{maxWidth:700,margin:"0 auto",background:c.white,borderRadius:20,border:`1px solid ${c.border}`,overflow:"hidden",boxShadow:"0 8px 40px rgba(0,0,0,0.06)"}}>
+<div style={{background:c.dark,padding:"24px 28px"}}><p style={{color:c.cyan,fontSize:12,fontWeight:700,textTransform:"uppercase",letterSpacing:2}}>Premier+ Lesson Summary</p><p style={{color:"rgba(255,255,255,0.4)",fontSize:11,marginTop:4}}>by Bayside Academics</p></div>
+<div style={{padding:"28px 28px"}}>
+<div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:20}}>
+<div><p style={{fontSize:11,color:c.textMuted,textTransform:"uppercase",letterSpacing:1}}>Student</p><p style={{fontSize:14,fontWeight:700}}>Julian M.</p></div>
+<div><p style={{fontSize:11,color:c.textMuted,textTransform:"uppercase",letterSpacing:1}}>Year Level</p><p style={{fontSize:14,fontWeight:700}}>Year 10</p></div>
+<div><p style={{fontSize:11,color:c.textMuted,textTransform:"uppercase",letterSpacing:1}}>Subject</p><p style={{fontSize:14,fontWeight:700}}>Mathematics</p></div>
+<div><p style={{fontSize:11,color:c.textMuted,textTransform:"uppercase",letterSpacing:1}}>Tutor</p><p style={{fontSize:14,fontWeight:700}}>Ryan</p></div>
+</div>
+
+<div style={{borderTop:`1px solid ${c.border}`,paddingTop:16,marginBottom:16}}>
+<h4 style={{fontSize:14,fontWeight:700,marginBottom:8,color:c.cyan}}>What We Covered Today</h4>
+<p style={{fontSize:13,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>Today's session focused on factorising quadratic expressions. We started by reviewing how to expand brackets, then moved into factorising monic quadratics (where the leading coefficient is 1). We worked through several examples from Chapter 5 of the Cambridge Essential Maths 10 textbook, progressing from simple positive constant terms to expressions with negative constants. Julian also attempted two challenge problems involving factorising then solving quadratic equations.</p>
+</div>
+
+<div style={{borderTop:`1px solid ${c.border}`,paddingTop:16,marginBottom:16}}>
+<h4 style={{fontSize:14,fontWeight:700,marginBottom:10,color:c.cyan}}>Topics & VCAA Curriculum Links</h4>
+<div style={{display:"grid",gap:8}}>
+{[{topic:"Expanding binomial products",vcaa:"Algebra - VCMNA332"},{topic:"Factorising monic quadratic trinomials",vcaa:"Algebra - VCMNA333"},{topic:"Solving quadratic equations by factorising",vcaa:"Algebra - VCMNA335"}].map((t,i)=>
+<div key={i} style={{background:c.offWhite,borderRadius:8,padding:"10px 14px"}}>
+<p style={{fontSize:13,fontWeight:600,color:c.text}}>{t.topic}</p>
+<p style={{fontSize:11,color:c.textMuted,marginTop:2}}>VCAA: {t.vcaa}</p>
+</div>)}
+</div></div>
+
+<div style={{borderTop:`1px solid ${c.border}`,paddingTop:16,marginBottom:16}}>
+<h4 style={{fontSize:14,fontWeight:700,marginBottom:8,color:c.cyan}}>How Julian Went</h4>
+<p style={{fontSize:13,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>Julian engaged well throughout the session and showed strong conceptual understanding of the factorising process. He was able to factorise standard monic quadratics (e.g. x² + 7x + 12) independently by the end of the session. He still needs practice with negative constant terms - specifically identifying factor pairs where one factor is negative (e.g. x² + 2x - 15). He attempted the challenge problems with guidance and was close to solving them independently.</p>
+</div>
+
+<div style={{borderTop:`1px solid ${c.border}`,paddingTop:16,marginBottom:16}}>
+<h4 style={{fontSize:14,fontWeight:700,marginBottom:10,color:c.cyan}}>Topic Confidence</h4>
+<div style={{display:"grid",gap:8}}>
+{[{t:"Expanding brackets",r:5},{t:"Factorising monic quadratics (positive terms)",r:4},{t:"Factorising with negative constants",r:3},{t:"Solving quadratics by factorising",r:3}].map((item,i)=><div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+<span style={{fontSize:13,color:c.textLight}}>{item.t}</span>
+<div style={{display:"flex",gap:3}}>{[1,2,3,4,5].map(v=><div key={v} style={{width:10,height:10,borderRadius:3,background:v<=item.r?c.cyan:`${c.cyan}20`}}/>)}</div>
+</div>)}
+</div></div>
+
+<div style={{borderTop:`1px solid ${c.border}`,paddingTop:16,marginBottom:16}}>
+<h4 style={{fontSize:14,fontWeight:700,marginBottom:8,color:c.cyan}}>Areas to Focus On Before Next Session</h4>
+<div style={{display:"grid",gap:6}}>
+{["Review factor pairs for numbers up to 50, especially with one negative factor","Practice factorising expressions with negative constant terms (e.g. x² + 2x - 15)","Attempt Exercise 5D Q1-10 in the Cambridge textbook","Review the connection between factorised form and solving for x = 0"].map((a,i)=>
+<div key={i} style={{display:"flex",gap:8,alignItems:"start"}}>
+<div style={{width:6,height:6,borderRadius:"50%",background:c.cyan,marginTop:6,flexShrink:0}}/>
+<p style={{fontSize:13,color:c.textLight,lineHeight:1.6,fontFamily:"'Lato',sans-serif"}}>{a}</p>
+</div>)}
+</div></div>
+
+<div style={{borderTop:`1px solid ${c.border}`,paddingTop:16,marginBottom:16}}>
+<h4 style={{fontSize:14,fontWeight:700,marginBottom:8,color:c.cyan}}>Recommended Resources</h4>
+<div style={{display:"grid",gap:6}}>
+{[{name:"Khan Academy - Factoring Quadratics",desc:"Interactive exercises with step-by-step hints"},{name:"Cambridge Essential Maths 10, Chapter 5D-5E",desc:"Textbook exercises aligned to today's content"},{name:"Mathspace - Quadratic Expressions module",desc:"Adaptive practice at Julian's level"}].map((r,i)=>
+<div key={i} style={{background:c.offWhite,borderRadius:8,padding:"10px 14px"}}>
+<p style={{fontSize:13,fontWeight:600,color:c.text}}>{r.name}</p>
+<p style={{fontSize:11,color:c.textMuted,marginTop:2}}>{r.desc}</p>
+</div>)}
+</div></div>
+
+<div style={{borderTop:`1px solid ${c.border}`,paddingTop:16}}>
+<h4 style={{fontSize:14,fontWeight:700,marginBottom:12,color:c.cyan}}>Practice Questions</h4>
+<div style={{display:"grid",gap:14}}>
+
+<div style={{background:c.offWhite,borderRadius:10,padding:"14px 16px"}}>
+<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
+<p style={{fontSize:13,fontWeight:700}}>Question 1</p>
+<span style={{fontSize:10,color:c.success,fontWeight:600,background:`${c.success}15`,padding:"2px 8px",borderRadius:10}}>Foundation</span>
+</div>
+<p style={{fontSize:13,color:c.textLight,lineHeight:1.6,fontFamily:"'Lato',sans-serif"}}>Factorise: x² + 9x + 20</p>
+<details style={{marginTop:8}}>
+<summary style={{fontSize:12,color:c.cyan,cursor:"pointer",fontWeight:600}}>View Solution</summary>
+<div style={{marginTop:8,padding:"10px 12px",background:c.white,borderRadius:6,border:`1px solid ${c.border}`}}>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>Find two numbers that multiply to 20 and add to 9.</p>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>Factors of 20: 1×20, 2×10, <strong>4×5</strong></p>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>4 + 5 = 9 ✓</p>
+<p style={{fontSize:13,color:c.text,fontWeight:600,marginTop:4}}>Answer: (x + 4)(x + 5)</p>
+</div></details>
+</div>
+
+<div style={{background:c.offWhite,borderRadius:10,padding:"14px 16px"}}>
+<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
+<p style={{fontSize:13,fontWeight:700}}>Question 2</p>
+<span style={{fontSize:10,color:c.cyan,fontWeight:600,background:`${c.cyan}15`,padding:"2px 8px",borderRadius:10}}>Standard</span>
+</div>
+<p style={{fontSize:13,color:c.textLight,lineHeight:1.6,fontFamily:"'Lato',sans-serif"}}>Factorise: x² + 2x - 15</p>
+<details style={{marginTop:8}}>
+<summary style={{fontSize:12,color:c.cyan,cursor:"pointer",fontWeight:600}}>View Solution</summary>
+<div style={{marginTop:8,padding:"10px 12px",background:c.white,borderRadius:6,border:`1px solid ${c.border}`}}>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>Find two numbers that multiply to -15 and add to +2.</p>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>Factor pairs of -15: -1×15, 1×-15, <strong>-3×5</strong>, 3×-5</p>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>-3 + 5 = 2 ✓</p>
+<p style={{fontSize:13,color:c.text,fontWeight:600,marginTop:4}}>Answer: (x - 3)(x + 5)</p>
+</div></details>
+</div>
+
+<div style={{background:c.offWhite,borderRadius:10,padding:"14px 16px"}}>
+<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
+<p style={{fontSize:13,fontWeight:700}}>Question 3</p>
+<span style={{fontSize:10,color:c.cyan,fontWeight:600,background:`${c.cyan}15`,padding:"2px 8px",borderRadius:10}}>Standard</span>
+</div>
+<p style={{fontSize:13,color:c.textLight,lineHeight:1.6,fontFamily:"'Lato',sans-serif"}}>Factorise: x² - 8x + 12</p>
+<details style={{marginTop:8}}>
+<summary style={{fontSize:12,color:c.cyan,cursor:"pointer",fontWeight:600}}>View Solution</summary>
+<div style={{marginTop:8,padding:"10px 12px",background:c.white,borderRadius:6,border:`1px solid ${c.border}`}}>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>Find two numbers that multiply to +12 and add to -8.</p>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>Both must be negative. Factor pairs: <strong>-2×-6</strong>, -3×-4</p>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>-2 + -6 = -8 ✓</p>
+<p style={{fontSize:13,color:c.text,fontWeight:600,marginTop:4}}>Answer: (x - 2)(x - 6)</p>
+</div></details>
+</div>
+
+<div style={{background:c.offWhite,borderRadius:10,padding:"14px 16px"}}>
+<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
+<p style={{fontSize:13,fontWeight:700}}>Question 4</p>
+<span style={{fontSize:10,color:`${c.gold}`,fontWeight:600,background:`${c.gold}15`,padding:"2px 8px",borderRadius:10}}>Extension</span>
+</div>
+<p style={{fontSize:13,color:c.textLight,lineHeight:1.6,fontFamily:"'Lato',sans-serif"}}>Solve for x: x² + 3x - 18 = 0</p>
+<details style={{marginTop:8}}>
+<summary style={{fontSize:12,color:c.cyan,cursor:"pointer",fontWeight:600}}>View Solution</summary>
+<div style={{marginTop:8,padding:"10px 12px",background:c.white,borderRadius:6,border:`1px solid ${c.border}`}}>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>Step 1: Factorise x² + 3x - 18</p>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>Find two numbers that multiply to -18 and add to +3: <strong>6 and -3</strong></p>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>Step 2: (x + 6)(x - 3) = 0</p>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>Step 3: Set each bracket to 0:</p>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>x + 6 = 0 → x = -6</p>
+<p style={{fontSize:12,color:c.textLight,lineHeight:1.7,fontFamily:"'Lato',sans-serif"}}>x - 3 = 0 → x = 3</p>
+<p style={{fontSize:13,color:c.text,fontWeight:600,marginTop:4}}>Answer: x = -6 or x = 3</p>
+</div></details>
+</div>
+
+</div></div>
+
+</div></div></F>
+</div></section>
+
+<section className="sp" style={{padding:"100px 40px",background:c.white}}>
+<div style={{maxWidth:900,margin:"0 auto"}}>
+<F><h2 style={{fontSize:32,fontWeight:800,textAlign:"center",marginBottom:8}}>Premier+ vs Standard Tutoring</h2>
+<div style={{width:40,height:3,background:c.cyan,margin:"0 auto 48px",borderRadius:2}}/></F>
+<F delay={.12}><div style={{overflowX:"auto"}}>
+<table style={{width:"100%",borderCollapse:"collapse",fontSize:14,fontFamily:"'Lato',sans-serif"}}>
+<thead><tr style={{borderBottom:`2px solid ${c.border}`}}>
+<th style={{textAlign:"left",padding:"14px 16px",fontWeight:700,fontFamily:"'Montserrat',sans-serif"}}>Feature</th>
+<th style={{textAlign:"center",padding:"14px 16px",fontWeight:700,fontFamily:"'Montserrat',sans-serif"}}>Standard</th>
+<th style={{textAlign:"center",padding:"14px 16px",fontWeight:700,fontFamily:"'Montserrat',sans-serif",color:c.cyan}}>Premier+</th>
+</tr></thead>
+<tbody>
+{[
+["Expert 1-on-1 tutoring","✓","✓"],
+["All subjects, Prep to Year 12","✓","✓"],
+["VCAA curriculum aligned","✓","✓"],
+["Flexible scheduling","✓","✓"],
+["Detailed session reports","","✓"],
+["Topic confidence tracking","","✓"],
+["Parent dashboard","","✓"],
+["Practice questions after each session","","✓"],
+["Assessment-aware planning","","✓"],
+["Textbook-specific recommendations","","✓"],
+].map((row,i)=><tr key={i} style={{borderBottom:`1px solid ${c.border}`}}>
+<td style={{padding:"12px 16px",color:c.textLight}}>{row[0]}</td>
+<td style={{padding:"12px 16px",textAlign:"center",color:row[1]?c.success:c.textMuted}}>{row[1]||"-"}</td>
+<td style={{padding:"12px 16px",textAlign:"center",color:c.cyan,fontWeight:600}}>{row[2]}</td>
+</tr>)}
+</tbody></table>
+</div></F>
+</div></section>
+
+<section className="sp3" style={{padding:"80px 40px",background:`linear-gradient(135deg,${c.dark},${c.darkMid})`,textAlign:"center"}}>
+<F><h2 style={{fontSize:34,fontWeight:800,color:c.white,marginBottom:12}}>Ready to experience Premier+?</h2>
+<p style={{fontSize:15,color:"rgba(255,255,255,0.5)",maxWidth:500,margin:"0 auto 32px",fontFamily:"'Lato',sans-serif"}}>Most of our families choose Premier+ for the visibility it gives them into their child's learning. No lock-in contracts.</p>
+<div style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap"}}>
+<button onClick={openEnrol} style={{padding:"15px 30px",borderRadius:8,border:"none",fontSize:14,fontWeight:700,cursor:"pointer",background:`linear-gradient(135deg,${c.cyan},${c.cyanLight})`,color:c.white,textTransform:"uppercase",letterSpacing:1}}>Enrol Now</button>
+<button onClick={()=>nav("contact")} style={{padding:"15px 30px",borderRadius:8,border:"2px solid rgba(255,255,255,0.2)",fontSize:14,fontWeight:600,cursor:"pointer",background:"transparent",color:c.white,textTransform:"uppercase",letterSpacing:1}}>Get in Touch</button>
+</div></F></section>
+</div>);}
