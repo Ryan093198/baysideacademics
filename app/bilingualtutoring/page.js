@@ -252,6 +252,12 @@ body.zh .show-in-zh { display: flex !important; }
               <li><span data-lang="en">Sessions available online or face-to-face</span><span data-lang="zh">可在线或面对面上课</span></li>
               <li><span data-lang="en">Pre-arrival programs for students still overseas</span><span data-lang="zh">为还在海外的学生提供预备课程</span></li>
             </ul>
+            <div style={{marginTop:"1.5rem",padding:"1.2rem 1.4rem",background:"var(--white)",border:"1px solid var(--grey-border)",borderRadius:12}}>
+              <p style={{fontFamily:"'Montserrat',sans-serif",fontSize:"0.75rem",fontWeight:700,letterSpacing:"1px",textTransform:"uppercase",color:"var(--red)",marginBottom:"0.8rem"}}><span data-lang="en">Prefer to get in touch directly?</span><span data-lang="zh">更喜欢直接联系？</span></p>
+              <div style={{display:"flex",alignItems:"center",gap:"0.7rem",marginBottom:"0.5rem"}}><span style={{fontSize:"1.1rem"}}>📱</span><a href="tel:0426787978" style={{fontSize:"0.95rem",color:"var(--dark)",fontWeight:600,textDecoration:"none"}}>0426 787 978</a></div>
+              <div style={{display:"flex",alignItems:"center",gap:"0.7rem",marginBottom:"0.5rem"}}><span style={{fontSize:"1.1rem"}}>📧</span><a href="mailto:admin@baysideacademics.com.au" style={{fontSize:"0.95rem",color:"var(--dark)",fontWeight:600,textDecoration:"none"}}>admin@baysideacademics.com.au</a></div>
+              <div style={{display:"flex",alignItems:"center",gap:"0.7rem"}}><span style={{fontSize:"1.1rem"}}>💬</span><span style={{fontSize:"0.88rem",color:"var(--text-muted)"}}><span data-lang="en">WeChat available on request</span><span data-lang="zh">可提供微信联系方式</span></span></div>
+            </div>
           </div>
           <div className="match-form">
             <h3><span data-lang="en">Find Your Tutor</span><span data-lang="zh">找到你的导师</span></h3>
@@ -335,6 +341,7 @@ body.zh .show-in-zh { display: flex !important; }
       <section className="cta-bottom">
         <h2><span data-lang="en">Ready to find the right tutor?</span><span data-lang="zh">准备好找到合适的导师了吗？</span></h2>
         <p><span data-lang="en">Fill in the form and we'll match you within 24 hours. No obligation, no sign-up fees.</span><span data-lang="zh">填写表格，我们将在24小时内为你匹配。无需承诺。</span></p>
+        <div style={{display:"flex",gap:"1.5rem",justifyContent:"center",flexWrap:"wrap",marginBottom:"1.5rem"}}><a href="tel:0426787978" style={{display:"flex",alignItems:"center",gap:"0.5rem",color:"var(--text-muted)",fontSize:"0.95rem",textDecoration:"none"}}><span>📱</span>0426 787 978</a><a href="mailto:admin@baysideacademics.com.au" style={{display:"flex",alignItems:"center",gap:"0.5rem",color:"var(--text-muted)",fontSize:"0.95rem",textDecoration:"none"}}><span>📧</span>admin@baysideacademics.com.au</a></div>
         <a href="#find-tutor" className="btn-primary"><span data-lang="en">Find a Tutor</span><span data-lang="zh">找导师</span></a>
       </section>
 
