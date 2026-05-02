@@ -174,11 +174,11 @@ body.zh .show-in-zh { display: flex !important; }
       `}</style>
 
       <nav className="bl-nav">
-        <a href="https://baysideacademics.com.au" className="nav-logo">
+        <a href="/bilingualtutoring" className="nav-logo">
           <img src="/logo.png" alt="Bayside Academics" />
         </a>
         <div className="nav-links">
-          <a href="https://baysideacademics.com.au">Home</a>
+          <a href="/bilingualtutoring">Home</a>
           <a href="#how-it-works"><span data-lang="en">How It Works</span><span data-lang="zh">如何运作</span></a>
           <a href="#languages"><span data-lang="en">Languages</span><span data-lang="zh">语言</span></a>
           <a href="#for-tutors"><span data-lang="en">For Tutors</span><span data-lang="zh">导师招募</span></a>
