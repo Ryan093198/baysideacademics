@@ -348,7 +348,7 @@ body.zh .show-in-zh { display: flex !important; }
       <footer className="bl-footer">
         <div className="footer-inner">
           <div><div className="footer-brand">Bayside Academics</div><p className="footer-brand-desc">Premium 1-on-1 tutoring for students from Prep to University. Curriculum-aligned support across all subjects.</p></div>
-          <div className="footer-col"><h4>Quick Links</h4><a href="https://baysideacademics.com.au">Home</a><a href="https://baysideacademics.com.au/premier-plus">Premier+</a><a href="/bilingualtutoring">Bilingual Tutoring</a></div>
+          <div className="footer-col"><h4>Quick Links</h4><a href="https://baysideacademics.com.au">Home</a><a href="https://baysideacademics.com.au/premier-plus">Premier+</a><a href="/bilingualtutoring">Bilingual Tutoring</a><a href="/free-maths-resources">Free Maths Resources</a></div>
           <div className="footer-col"><h4>Subjects</h4><a href="#">Mathematics</a><a href="#">English</a><a href="#">Sciences</a><a href="#">Humanities</a></div>
           <div className="footer-col"><h4>Contact</h4><a href="#">5/240 Bay St, Brighton VIC 3186</a><a href="mailto:admin@baysideacademics.com.au">admin@baysideacademics.com.au</a><a href="tel:0426787978">0426 787 978</a></div>
         </div>
